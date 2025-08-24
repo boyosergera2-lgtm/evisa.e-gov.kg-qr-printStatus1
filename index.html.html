@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>View PDF — YADAV HEMANT</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --fg: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --card: #111827;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(180deg, var(--bg), #020617 60%);
+      color: var(--fg);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .wrap {
+      width: min(100%, 1100px);
+    }
+    .card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    header h1 {
+      font-size: 16px;
+      margin: 0;
+      letter-spacing: .2px;
+      color: var(--fg);
+    }
+    header .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      appearance: none;
+      border: 1px solid rgba(148,163,184,.25);
+      background: #0b1220;
+      color: var(--fg);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .03s ease, border-color .2s ease, background .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn:hover {
+      border-color: var(--accent);
+      background: #0d1424;
+    }
+    .btn:active { transform: translateY(1px); }
+    .viewer {
+      width: 100%;
+      height: 82vh; /* responsive height; adjust if needed */
+      border: none;
+      display: block;
+      background: #0b1220;
+    }
+    .fallback {
+      padding: 18px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .note {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px 16px 16px;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    @media (max-width: 640px) {
+      header h1 { font-size: 14px; }
+      .viewer { height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1>PDF Viewer — <span style="color: var(--accent)">YADAV&nbsp;HEMANT.pdf</span></h1>
+        <div class="actions">
+          <a class="btn" href="YADAV%20HEMANT.pdf" target="_blank" rel="noopener">Open in new tab</a>
+          <a class="btn" href="YADAV%20HEMANT.pdf" download>Download PDF</a>
+        </div>
+      </header>
+
+      <!-- Try the native PDF viewer first -->
+      <object data="YADAV%20HEMANT.pdf" type="application/pdf" class="viewer">
+        <!-- Fallback to iframe for some browsers -->
+        <iframe src="YADAV%20HEMANT.pdf" class="viewer" title="PDF Viewer"></iframe>
+
+        <!-- Final fallback -->
+        <div class="fallback">
+          Your browser couldn't display the PDF. You can
+          <a href="YADAV%20HEMANT.pdf" target="_blank" rel="noopener" style="color: var(--fg); text-underline-offset: 3px;">open it in a new tab</a>
+          or <a href="YADAV%20HEMANT.pdf" download style="color: var(--fg); text-underline-offset: 3px;">download it</a>.
+        </div>
+      </object>
+
+      <div class="note">
+        Tip: keep this HTML file in the same folder as <code>YADAV HEMANT.pdf</code> so the viewer can find it.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
